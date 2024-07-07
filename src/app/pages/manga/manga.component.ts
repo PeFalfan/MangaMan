@@ -22,7 +22,6 @@ export class MangaComponent {
 
   ngOnInit(): void {
     this.mangaService.getProducts().subscribe(data => {
-      console.log(data)
       this.productos = data;
     });
   }
@@ -35,15 +34,13 @@ export class MangaComponent {
       }
     };
 
-    this.router.navigate(['/shopping-cart'], navigationExtras);
+    this.router.navigate(['/carro-de-compras'], navigationExtras);
   }
 
   addToCart(product: ProductModel) {
 
     this.productsInShoppingCart.push(product);
 
-    console.log('currently in shopping cart: ', this.productsInShoppingCart);
-
+    alert('Producto añadido al carro!')
   }
-
 }
