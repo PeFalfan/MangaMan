@@ -20,12 +20,14 @@ export class MangaComponent {
 
   constructor(private mangaService: MangaService, private router: Router,) { }
 
+  // Metodo onInit se ejecuta al cargar componente, justo despues del constructor de la clase
   ngOnInit(): void {
     this.mangaService.getProducts().subscribe(data => {
       this.productos = data;
     });
   }
 
+  // Metodo de navegación, para enviar productos al carro de compras
   goToShoppingCart() {
 
     const navigationExtras: NavigationExtras = {
@@ -37,6 +39,7 @@ export class MangaComponent {
     this.router.navigate(['/carro-de-compras'], navigationExtras);
   }
 
+  // Metodo para agregar productos al carro
   addToCart(product: ProductModel) {
 
     this.productsInShoppingCart.push(product);
